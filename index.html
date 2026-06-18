@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SFK Hub</title>
+  <link rel="stylesheet" href="hub.css" />
+</head>
+<body>
+
+  <main class="hub">
+
+    <section class="hero">
+      <div class="hero-badge">🐨 SFK DIGITAL PORTAL</div>
+
+      <h1>SFK Hub</h1>
+      <p class="tagline">ClassBoard, KoalaCare, and KindTrack in one place.</p>
+
+      <p class="section-info">
+        Grade 8 – St. Faustina Kowalska | S.Y. 2026–2027 | <span>#BeKind</span>
+      </p>
+    </section>
+
+    <section class="group">
+      <div class="group-header">
+        <h2>📺 ClassBoard Tools</h2>
+        <p>Display, check, and manage daily class information.</p>
+      </div>
+
+      <div class="card-grid three">
+
+        <a href="https://johnreytubs24.github.io/sfk-classboard/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="card">
+          <div class="icon">📺</div>
+          <h3>TV Display</h3>
+          <p>Open the main classroom screen with schedule, countdown, reminders, things to bring, and announcements.</p>
+          <span>Open ClassBoard →</span>
+        </a>
+
+        <a href="https://johnreytubs24.github.io/sfk-classboard/officer.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="card">
+          <div class="icon">🧑‍💼</div>
+          <h3>Officer View</h3>
+          <p>For class officers checking announcements, things to bring, reminders, and important class updates.</p>
+          <span>Open Officer View →</span>
+        </a>
+
+        <a href="#"
+           onclick="openProtectedLink('classboardAdmin'); return false;"
+           class="card admin-card">
+          <div class="icon">⚙️</div>
+          <h3>ClassBoard Admin</h3>
+          <p>For adviser/admin use in editing ClassBoard content, schedule, reminders, and daily information.</p>
+          <span>Enter Passcode →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="group-header">
+        <h2>🐨 KoalaCare Report System</h2>
+        <p>Report with kindness. Act with fairness.</p>
+      </div>
+
+      <div class="card-grid two">
+
+        <a href="https://johnreytubs24.github.io/koalacare/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="card koala-card">
+          <div class="icon">🐨</div>
+          <h3>Student Report</h3>
+          <p>For students to submit concerns, incidents, or reports in a kind and responsible way.</p>
+          <span>Open Report App →</span>
+        </a>
+
+        <a href="#"
+           onclick="openProtectedLink('koalacareAdmin'); return false;"
+           class="card admin-card">
+          <div class="icon">🔐</div>
+          <h3>KoalaCare Admin</h3>
+          <p>For adviser/admin use in reviewing, updating, and resolving submitted student reports.</p>
+          <span>Enter Passcode →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="group-header">
+        <h2>📋 KindTrack</h2>
+        <p>Responsibility and violation viewer for students.</p>
+      </div>
+
+      <div class="card-grid one">
+
+        <a href="https://johnreytubs24.github.io/sfk-kindtrack/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="card kindtrack-card">
+          <div class="icon">📋</div>
+          <h3>Responsibility &amp; Violation Viewer</h3>
+          <p>For students to view their responsibility records, violation records, waived items, and reminders.</p>
+          <span>Open KindTrack →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <div class="note">
+      Links open in a new tab so the SFK Hub stays available as the main portal. Admin pages require a hub passcode before opening.
+    </div>
+
+    <footer>
+      <p>Made for Grade 8 – St. Faustina Kowalska 🐨 | <strong>#BeKind</strong></p>
+    </footer>
+
+  </main>
+
+  <script>
+    /*
+      SFK HUB PASSCODE
+      Default passcode: SFK2026
+      Change the value below if you want another passcode.
+      Note: This is an extra front-door gate only because GitHub Pages is static.
+    */
+    const HUB_ADMIN_PASSCODE = "SFK2026";
+
+    const protectedLinks = {
+      classboardAdmin: {
+        title: "ClassBoard Admin",
+        url: "https://johnreytubs24.github.io/sfk-classboard/admin.html"
+      },
+      koalacareAdmin: {
+        title: "KoalaCare Admin",
+        url: "https://johnreytubs24.github.io/koalacare/admin"
+      }
+    };
+
+    function openProtectedLink(type) {
+      const selected = protectedLinks[type];
+      if (!selected) return;
+
+      const enteredPasscode = prompt(`Enter SFK Hub passcode for ${selected.title}:`);
+
+      if (enteredPasscode === null) {
+        return;
+      }
+
+      if (enteredPasscode === HUB_ADMIN_PASSCODE) {
+        window.open(selected.url, "_blank", "noopener,noreferrer");
+      } else {
+        alert("Incorrect passcode. Please try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>

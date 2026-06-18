@@ -1,0 +1,373 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --yellow: #ffd83d;
+  --yellow-dark: #f4b400;
+  --black: #151515;
+  --soft-black: #252525;
+  --white: #ffffff;
+  --cream: #fff8df;
+  --gray: #6d6d6d;
+  --line: rgba(0, 0, 0, 0.1);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+  --radius: 28px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(255, 216, 61, 0.55), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255, 216, 61, 0.35), transparent 35%),
+    linear-gradient(135deg, #fff9dc, #ffffff 45%, #f7f7f7);
+}
+
+.hub {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  padding: 42px 0 30px;
+}
+
+.hero {
+  text-align: center;
+  padding: 34px 22px 28px;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(21, 21, 21, 0.96), rgba(42, 42, 42, 0.96)),
+    var(--black);
+  color: var(--white);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: var(--yellow);
+  border-radius: 50%;
+  top: -100px;
+  right: -70px;
+  opacity: 0.9;
+}
+
+.hero::after {
+  content: "🐨";
+  position: absolute;
+  right: 38px;
+  top: 28px;
+  font-size: 54px;
+  transform: rotate(8deg);
+}
+
+.hero-badge {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 216, 61, 0.16);
+  border: 1px solid rgba(255, 216, 61, 0.5);
+  color: var(--yellow);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.95;
+  letter-spacing: -3px;
+}
+
+.tagline {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  font-size: clamp(1rem, 2.2vw, 1.45rem);
+  color: #f7f7f7;
+  font-weight: 600;
+}
+
+.section-info {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  color: #d8d8d8;
+  font-size: 0.95rem;
+}
+
+.section-info span {
+  color: var(--yellow);
+  font-weight: 800;
+}
+
+.group {
+  margin-top: 26px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.group-header h2 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--black);
+}
+
+.group-header p {
+  margin-top: 5px;
+  color: var(--gray);
+  font-size: 0.98rem;
+}
+
+.card-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.card-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid.one {
+  grid-template-columns: 1fr;
+}
+
+.card {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.14);
+  border-color: rgba(244, 180, 0, 0.45);
+}
+
+.icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: var(--cream);
+  font-size: 2rem;
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  flex: 1;
+  color: var(--gray);
+  line-height: 1.55;
+  font-size: 0.96rem;
+}
+
+.card span {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--black);
+  font-weight: 800;
+}
+
+.admin-card {
+  background:
+    linear-gradient(135deg, rgba(21, 21, 21, 0.96), rgba(40, 40, 40, 0.98)),
+    var(--black);
+  color: var(--white);
+}
+
+.admin-card p {
+  color: #d7d7d7;
+}
+
+.admin-card span {
+  color: var(--yellow);
+}
+
+.admin-card .icon {
+  background: rgba(255, 216, 61, 0.15);
+}
+
+.koala-card {
+  background:
+    linear-gradient(135deg, #fffef5, #fff4bf);
+  border-color: rgba(244, 180, 0, 0.32);
+}
+
+.kindtrack-card {
+  background:
+    linear-gradient(135deg, #ffffff, #fff7cf);
+  border-color: rgba(244, 180, 0, 0.32);
+}
+
+.note {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 216, 61, 0.22);
+  border: 1px solid rgba(244, 180, 0, 0.28);
+  color: #3d3200;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+footer {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+footer strong {
+  color: var(--black);
+}
+
+/* Tablet */
+@media (max-width: 920px) {
+  .card-grid.three,
+  .card-grid.two {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-grid.three .card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .hub {
+    width: min(94%, 480px);
+    padding-top: 22px;
+  }
+
+  .hero {
+    padding: 30px 18px 26px;
+    text-align: left;
+    border-radius: 24px;
+  }
+
+  .hero::before {
+    width: 170px;
+    height: 170px;
+    top: -82px;
+    right: -58px;
+  }
+
+  .hero::after {
+    right: 24px;
+    top: 31px;
+    font-size: 34px;
+  }
+
+  .hero-badge {
+    font-size: 0;
+    padding: 7px 13px;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+    max-width: fit-content;
+  }
+
+  .hero-badge::before {
+    content: "🐨 SFK PORTAL";
+    font-size: 0.7rem;
+    letter-spacing: 0.7px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.1rem, 15vw, 4.2rem);
+    letter-spacing: -2px;
+  }
+
+  .tagline {
+    margin-top: 12px;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .section-info {
+    max-width: 290px;
+    line-height: 1.45;
+    font-size: 0.92rem;
+  }
+
+  .group {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .group-header {
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .group-header h2 {
+    line-height: 1.2;
+  }
+
+  .group-header p {
+    line-height: 1.4;
+  }
+
+  .card-grid.three,
+  .card-grid.two,
+  .card-grid.one {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid.three .card:last-child {
+    grid-column: auto;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .icon {
+    width: 54px;
+    height: 54px;
+    font-size: 1.8rem;
+  }
+}
